@@ -9,7 +9,7 @@
         <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css'>
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body ng-app="email" ng-controller="MainCtrl as $ctrl">
+    <body ng-app="myApp" ng-controller="MainCtrl as $ctrl">
         <header>
             <img src="https://s31.postimg.org/8qhcpeknf/tegra_Informa.jpg" alt="logo tegra informa">
         </header>
@@ -17,16 +17,16 @@
                 <p class="title form-title">Add new section</p>
                 <div class="form">
                     <div class="field">
-                        <input type="file" id="files" name="files[]" multiple="multiple"/>
+                        <input ng-model="img" type="file" id="files" name="files[]" multiple="multiple"/>
                         <output id="list"></output>
                         <span></span>
                     </div>
                     <div class="field">
-                        <input type="text" id="button-title" placeholder="Title" onkeypress="preview();" onblur="preview();" onfocus="preview();">
+                        <input ng-model="title" type="text" id="button-title" placeholder="Title" onkeypress="preview();" onblur="preview();" onfocus="preview();">
                         <span></span>
                     </div>
                     <div class="field">
-                        <input type="text" id="button-text" placeholder="Text" onkeypress="preview();" onblur="preview();" onfocus="preview();">
+                        <input ng-model="text" type="text" id="button-text" placeholder="Text" onkeypress="preview();" onblur="preview();" onfocus="preview();">
                         <span></span>
                     </div>
                     <div class="formend" id="sticker">
@@ -49,15 +49,20 @@
             </div>
             <div class="corpoemail"></div>
             <p class="title form-title">Template Code</p>
+            <p ng-bind="$ctrl.model.title">
+            </p>
             <div class="template-code">
               <button onclick="loadHTML()" name="button" style="display="block";">loadHTML</button>
                 <p class="title"></p>
-                <textarea id="template-html" class="template-textarea" onfocus="this.select();"></textarea>
+                <!-- TODO: FIX THE FUNCTION TO INJECT THE TEMPLATE WITH THE TITLE AND TEXT WITHIN THE MODEL -->
+                <textarea id="template-html" class="" onfocus="this.select();">
+                  {{ title }}
+                  {{ text }}
+                </textarea>
             </div>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js" type="text/javascript"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js" type="text/javascript"></script>
-
-        <script src="js/script.js"></script>
-        <script src="js/file_reader.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
+        <script src="js/file_reader.js" type="text/javascript"></script>
     </body>
 </html>

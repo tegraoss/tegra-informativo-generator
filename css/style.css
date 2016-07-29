@@ -339,7 +339,7 @@ body {
   font-family: Monospace;
   font-size: 16px;
   border: none;
-  visibility: hidden;
+  /*visibility: hidden;*/
 }
 
 .template-input {
