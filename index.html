@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,width=device-width">
+
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'>
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css'>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Tegra Informativo Generator</title>
+    </head>
+
+    <body>
+        <header>
+            <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+                <tr>
+                    <td style="padding: 10px 0; text-align: center">
+                        <img src="https://s31.postimg.org/8qhcpeknf/tegra_Informa.jpg" max-width="100%" ; height="auto" alt="logo tegra informa" border="0">
+                    </td>
+                </tr>
+            </table>
+        </header>
+        <div class="wrapper">
+            <div class="container">
+                <p class="title form-title">Add new section</p>
+                <div class="form">
+                    <div class="field">
+                        <input type="file" id="files" placeholder="Imagem" name="files[]" multiple="multiple"/>
+                        <output id="list"></output>
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <input type="text" id="button-title" placeholder="Title" onkeypress="preview();" onblur="preview();" onfocus="preview();">
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <input type="text" id="button-text" placeholder="Text" onkeypress="preview();" onblur="preview();" onfocus="preview();">
+                        <span></span>
+                    </div>
+                    <div class="formend" id="sticker">
+                        <div onclick="add()" class="add">
+                            <label>Add</label>
+                            <div>
+                                <label>Add</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formend">
+                        <div onclick="removee()" class="removee">
+                            <label>Delete</label>
+                            <div>
+                                <label>Delete</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="loadHTML()" name="button">loadHTML</button>
+            <div class="corpoemail"></div>
+            <p class="title form-title">Template Code</p>
+            <div class="template-code">
+                <p class="title"></p>
+                <textarea id="template-html" class="template-textarea" onfocus="this.select();"></textarea>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+        <script src="js/file_reader.js"></script>
+    </body>
+</html>
