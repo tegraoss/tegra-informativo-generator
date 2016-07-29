@@ -13,7 +13,7 @@ function handleFileSelect(evt) {
       return function (e) {
         // Render thumbnail.
         var span = document.createElement('span');
-        span.innerHTML = ['<img class="center-on-narrow" style="width: 100%;" src="', e.target.result, '" title="', escape(theFile.name), '"/><span></span>'].join('');
+        span.innerHTML = ['<img class="img" style="width: 100%;" src="', e.target.result, '" title="', escape(theFile.name), '"/><span></span>'].join('');
         document.getElementById('list').insertBefore(span, null);
       };
     })(f);
