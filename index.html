@@ -1,68 +1,387 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="initial-scale=1,maximum-scale=1,width=device-width">
-        <title>Tegra Informativo Generator</title>
-        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'>
-        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css'>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body ng-app="myApp" ng-controller="MainCtrl as $ctrl">
-        <header>
-            <img src="https://s31.postimg.org/8qhcpeknf/tegra_Informa.jpg" alt="logo tegra informa">
-        </header>
-            <div class="container">
-                <p class="title form-title">Add new section</p>
-                <div class="form">
-                    <div class="field">
-                        <input ng-model="img" type="file" id="files" name="files[]" multiple="multiple"/>
-                        <output id="list"></output>
-                        <span></span>
-                    </div>
-                    <div class="field">
-                        <input ng-model="title" type="text" id="button-title" placeholder="Title" onkeypress="preview();" onblur="preview();" onfocus="preview();">
-                        <span></span>
-                    </div>
-                    <div class="field">
-                        <input ng-model="text" type="text" id="button-text" placeholder="Text" onkeypress="preview();" onblur="preview();" onfocus="preview();">
-                        <span></span>
-                    </div>
-                    <div class="formend" id="sticker">
-                        <div onclick="add()" class="add">
-                            <label>Add</label>
-                            <div>
-                                <label>Add</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="formend">
-                        <div onclick="removee()" class="removee">
-                            <label>Delete</label>
-                            <div>
-                                <label>Delete</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="corpoemail"></div>
-            <p class="title form-title">Template Code</p>
-            <p ng-bind="$ctrl.model.title">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+	<title>Informativo Tegra</title>
+
+	<!-- Web Font / @font-face : BEGIN -->
+
+	<!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+	<!--[if mso]>
+		<style>
+			* {
+				font-family: 'Lato', sans-serif; !important;
+			}
+		</style>
+	<![endif]-->
+
+	<!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+	<!--[if !mso]><!-->
+		<!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+	<!--<![endif]-->
+
+	<!-- Web Font / @font-face : END -->
+
+	<!-- CSS Reset -->
+    <style type="text/css">
+
+		/* What it does: Remove spaces around the email design added by some email clients. */
+		/* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body,
+				footer {
+	        margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+						color: #3a3b3d;
+						font-family: 'Lato', sans-serif;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin:0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+
+        /* What it does: A work-around for iOS meddling in triggered links. */
+        .mobile-link--footer a,
+        a[x-apple-data-detectors] {
+            color:inherit !important;
+            text-decoration: underline !important;
+        }
+        .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    </style>
+
+    <!-- Progressive Enhancements -->
+    <style>
+
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td:hover,
+        .button-a:hover {
+            background: #555555 !important;
+            border-color: #555555 !important;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 480px) {
+
+            /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+            .fluid,
+            .fluid-centered {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            /* And center justify these ones. */
+            .fluid-centered {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: center !important;
+            }
+
+            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+        }
+        td > input {
+         border: none;
+         outline: none;
+         background-color: transparent;
+         font-family: inherit;
+         font-size: inherit;
+         display: block;
+          font-size: 1.5em;
+          margin-before: 0.83em;
+          margin-after: 0.83em;
+          margin-start: 0;
+          margin-end: 0;
+          font-weight: bold;
+        }
+    </style>
+
+</head>
+<body width="100%" bgcolor="#929191" style="margin: 0;">
+  <button class="btn unselectable" onclick="adicionar();">Adicionar</button>
+  <center style="width: 100%; background: #fff;">
+
+    <!-- Visually Hidden Preheader Text : BEGIN -->
+    <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+      <!-- (Optional) This text will appear in the inbox preview, but not the email body. -->
+      Informativo Tegra
+    </div>
+    <!-- Visually Hidden Preheader Text : END -->
+    <div style="max-width: 680px; margin: auto;">
+      <!--[if mso]>
+            <table cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+            <tr>
+            <td>
+            <![endif]-->
+
+      <!-- Email Header : BEGIN -->
+      <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
+        <tr>
+          <td style="padding: 10px 0; text-align: center">
+            <img src="https://s31.postimg.org/8qhcpeknf/tegra_Informa.jpg" max-width="100%"; height="auto" alt="alt_text" border="0" >
+          </td>
+        </tr>
+      </table>
+      <!-- Email Header : END -->
+      <!-- Email Body : BEGIN -->
+      <table id="contentBody" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
+        <!-- 4 Even Sections : BEGIN -->
+        <!-- First section begin -->
+
+        <!-- first section ends -->
+        <!-- 4 sections : END -->
+
+        <!-- Clear Spacer : BEGIN -->
+        <tr>
+          <td height="20" style="font-size: 0; line-height: 0;">
+            &nbsp;
+          </td>
+        </tr>
+        <!-- Clear Spacer : END -->
+      </table>
+      <!-- Email Body : END -->
+
+      <!-- Email Footer : BEGIN -->
+      <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
+				<hr>
+        <tr>
+          <td style=" margin:auto; width: 100%;font-size: 16px; mso-height-rule: exactly; line-height:16px; text-align: center;">
+            <br>
+            <br>
+            <p>Tem alguma sugestão para nosso próximo informativo?<span style="display:block"></span> Mande um e-mail para <a href="mailto:informativo@tegra.me">informativo@tegra.me</a>
             </p>
-            <div class="template-code">
-              <button onclick="loadHTML()" name="button" style="display="block";">loadHTML</button>
-                <p class="title"></p>
-                <!-- TODO: FIX THE FUNCTION TO INJECT THE TEMPLATE WITH THE TITLE AND TEXT WITHIN THE MODEL -->
-                <textarea id="template-html" class="" onfocus="this.select();">
-                  {{ title }}
-                  {{ text }}
-                </textarea>
-            </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" type="text/javascript"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"type="text/javascript"></script>
-        <script src="js/script.js" type="text/javascript"></script>
-        <script src="js/file_reader.js" type="text/javascript"></script>
-    </body>
+          </td>
+        </tr>
+      </table>
+      <!-- Email Footer : END -->
+
+      <!--[if mso]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+    </div>
+  </center>
+  <script type="text/javascript">
+    function adicionar() {
+      var content = document.getElementById("contentBody").getElementsByTagName("tbody")[0];
+      content.appendChild(createSection());
+    }
+    function editar(element, e) {
+      element.parentElement.getElementsByTagName(e)[0].value = element.innerHTML;
+      element.parentElement.getElementsByTagName(e)[0].style.display = "block";
+      element.style.display = "none";
+      element.parentElement.getElementsByTagName("button")[0].style.display = "block";
+    }
+    function x(element) {
+      console.log("Blur!");
+      let inpt  = element.parentElement.getElementsByTagName("input")[0];
+      let h2 = element.parentElement.getElementsByTagName("h2")[0];
+      h2.innerHTML = inpt.value;
+      let txt = element.parentElement.getElementsByTagName("textarea")[0];
+      let p = element.parentElement.getElementsByTagName("p")[0];
+
+      p.innerHTML = txt.value;
+
+      h2.style.display = "block";
+      inpt.style.display = "none";
+      txt.style.display = "none";
+      p.style.display = "inline-block";
+    }
+    function createSection() {
+      var tr = document.createElement("tr");
+
+      var td = document.createElement("td");
+      td.setAttribute("bgcolor","#ffffff");
+      td.setAttribute("align","center");
+      td.setAttribute("height","100%");
+      td.setAttribute("valign","top");
+      td.setAttribute("width", "100%");
+      tr.appendChild(td);
+
+      var table = document.createElement("table");
+      table.setAttribute("border","0");
+      table.setAttribute("cellpadding","0");
+      table.setAttribute("cellspacing","0");
+      table.setAttribute("width", "100%");
+      table.setAttribute("align","center");
+      td.appendChild(table);
+
+      var tr2 = document.createElement("tr");
+      table.appendChild(tr2);
+
+      var td2 = document.createElement("td");
+      td2.setAttribute("align","center");
+      td2.setAttribute("style","font-size:0; padding: 10px 0;");
+      td2.setAttribute("valign","top");
+      tr2.appendChild(td2);
+
+      var div = document.createElement("div");
+      div.setAttribute("style","display:inline-block; margin: 0 -2px; width:100%; min-width:200px; max-width:600px; vertical-align:top;");
+      td2.appendChild(div);
+
+      var table2 = document.createElement("table");
+      table2.setAttribute("border","0");
+      table2.setAttribute("cellpadding","0");
+      table2.setAttribute("cellspacing","0");
+      table2.setAttribute("width", "100%");
+      table2.setAttribute("align","center");
+      table2.setAttribute("style","max-width:660px;");
+      div.appendChild(table2);
+
+      var tr3 = document.createElement("tr");
+      table2.appendChild(tr3);
+
+      var td3 = document.createElement("td");
+      td3.setAttribute("bgcolor","#ffffff");
+      td3.setAttribute("align","center");
+      td3.setAttribute("height","100%");
+      td3.setAttribute("valign","top");
+      td3.setAttribute("width", "100%");
+      tr3.appendChild(td3);
+
+      var table3 = document.createElement("table");
+      table3.setAttribute("border","0");
+      table3.setAttribute("cellpadding","0");
+      table3.setAttribute("cellspacing","0");
+      table3.setAttribute("width", "100%");
+      table3.setAttribute("align","center");
+      td3.appendChild(table3);
+
+      var tr4 = document.createElement("tr");
+      table3.appendChild(tr4);
+
+      var td4 = document.createElement("td");
+      td4.setAttribute("align","center");
+      td4.setAttribute("style","font-size:0; padding: 10px 0;");
+      td4.setAttribute("valign","top");
+      tr4.appendChild(td4);
+
+      var img = document.createElement("img");
+      img.setAttribute("style", "border: 0;width: 100%;" );
+      img.setAttribute("class", "center-on-narrow");
+      img.setAttribute("src", "http://placehold.it/600");
+      img.setAttribute("onclick", "getImg(this);");
+      td4.appendChild(img);
+
+      var tr5 = document.createElement("tr");
+      table3.appendChild(tr5);
+
+      var td5 = document.createElement("td");
+      td5.setAttribute("style","font-family: 'Lato', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; padding-top: 10px;");
+      td5.setAttribute("class","stack-column-center");
+      tr5.appendChild(td5);
+
+      var inputTitle = document.createElement("input");
+      inputTitle.setAttribute("type","text");
+      inputTitle.setAttribute("class","title");
+      // inputTitle.setAttribute("onblur","alert('2');");
+      inputTitle.style.display = "none";
+      td5.appendChild(inputTitle);
+
+      var title = document.createElement("h2");
+      title.setAttribute("class","h2-title");
+      title.setAttribute("onclick","editar(this, 'input')");
+      title.innerHTML = "Title";
+      td5.appendChild(title);
+
+      var inputText = document.createElement("textarea");
+      inputText.setAttribute("class","text");
+      inputText.style.display = "none";
+      td5.appendChild(inputText);
+
+      var text = document.createElement("p");
+      text.setAttribute("class","p-text");
+      text.setAttribute("onclick","editar(this, 'textarea')");
+      text.innerHTML  = "Maecenas sed ante pellentesque";
+      td5.appendChild(text);
+
+      var btn = document.createElement("button");
+      btn.setAttribute("onclick","x(this);");
+      btn.innerHTML = "EDITAR";
+      btn.style.display = "none";
+      td5.appendChild(btn);
+
+      return tr;
+    }
+    function getImg(element) {
+    var url = prompt("Please inform the image url", "http://tegra.me/static/images/tegra_logo.png");
+
+    if (url != null) {
+        element.src = url;
+        // document.getElementById("demo").innerHTML =
+        // "Hello " + person + "! How are you today?";
+    }
+  }
+    // TODO: host the image
+  </script>
+</body>
 </html>
