@@ -1,6 +1,6 @@
 # tegra-informativo-generator
 
-Aplication responsible for creating the "Tegra - informativo" using Javascript vannila and [cerberus]
+Aplication responsible for creating the "Tegra - informativo" using Javascript vanilla and [cerberus](http://tedgoas.github.io/Cerberus/)
 
 How to use it
 =====================
