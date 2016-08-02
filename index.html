@@ -35,6 +35,8 @@
                 width: 100% !important;
                 color: #3a3b3d;
                 font-family: 'Lato', sans-serif;
+                background: #fff;
+                align-items: center;
             }
 
             /* What it does: Stops email clients resizing small text. */
@@ -96,16 +98,18 @@
             .button-a,
             .button-td {
                 transition: all 100ms ease-in;
-                color: #F6F6F6;
-                font-size: 14px;
+                color: #fff;
+                font-size: 16px;
+                border-radius: 6px;
+                margin-top: auto;
+                padding-top: 4px;
                 background-color: #D0021A;
                 text-transform: capitalize;
-                transition: top 200ms ease-in-out;
             }
             .button-a:hover,
             .button-td:hover {
                 background: #C0020A !important;
-                border-color: #C0024A !important;
+                border-color: #C0022F !important;
             }
 
             /* Media Queries */
@@ -165,12 +169,15 @@
                 margin-end: 0;
                 font-weight: bold;
             }
-
+            .h2-title:hover, .p-text:hover {
+              text-decoration: underline;
+            }
         </style>
 
     </head>
     <body width="100%" bgcolor="#929191" style="margin: 0;">
-        <button class="button-a unselectable" onclick="adicionar();">add section </button>
+        <button class="center-on-narrow button-a unselectable" onclick="adicionar();">add section
+        </button>
         <center style="width: 100%; background: #fff;">
 
             <!-- Visually Hidden Preheader Text : BEGIN -->
@@ -237,19 +244,19 @@
                 element.parentElement.getElementsByTagName("button")[0].style.display = "block";
             }
             function x(element) {
-                console.log("Blur!");
                 let inpt = element.parentElement.getElementsByTagName("input")[0];
                 let h2 = element.parentElement.getElementsByTagName("h2")[0];
                 h2.innerHTML = inpt.value;
+
                 let txt = element.parentElement.getElementsByTagName("textarea")[0];
                 let p = element.parentElement.getElementsByTagName("p")[0];
-
                 p.innerHTML = txt.value;
 
                 h2.style.display = "block";
                 inpt.style.display = "none";
                 txt.style.display = "none";
                 p.style.display = "inline-block";
+                element.style.display = "none";
             }
             function createSection() {
                 var tr = document.createElement("tr");
@@ -331,14 +338,16 @@
                 table3.appendChild(tr5);
 
                 var td5 = document.createElement("td");
-                td5.setAttribute("style", "font-family: 'Lato', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; padding-top: 10px;");
-                td5.setAttribute("class", "stack-column-center");
+                td5.setAttribute("style", "font-family: 'Lato', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; padding-top: 10px; text-align:center");
+                td5.setAttribute("class", "stack-column-center center-on-narrow");
                 tr5.appendChild(td5);
 
                 var inputTitle = document.createElement("input");
                 inputTitle.setAttribute("type", "text");
                 inputTitle.setAttribute("class", "title");
+                inputTitle.setAttribute("style", "margin-left: auto; margin-right: auto; text-align:center");
                 inputTitle.style.display = "none";
+                inputTitle.value = "Title";
                 td5.appendChild(inputTitle);
 
                 var title = document.createElement("h2");
@@ -349,18 +358,20 @@
 
                 var inputText = document.createElement("textarea");
                 inputText.setAttribute("class", "text");
+                inputText.setAttribute("style", "align: center; margin-left: auto; margin-right: auto");
                 inputText.style.display = "none";
+                inputText.value = "Some text";
                 td5.appendChild(inputText);
 
                 var text = document.createElement("p");
                 text.setAttribute("class", "p-text");
                 text.setAttribute("onclick", "editar(this, 'textarea')");
-                text.innerHTML = "Maecenas sed ante pellentesque";
+                text.innerHTML = "Some text";
                 td5.appendChild(text);
 
                 var btn = document.createElement("button");
                 btn.setAttribute("onclick", "x(this);");
-                btn.innerHTML = "edit";
+                btn.innerHTML = "save";
                 btn.setAttribute("class", "button-td unselectable");
                 btn.style.display = "none";
                 td5.appendChild(btn);
