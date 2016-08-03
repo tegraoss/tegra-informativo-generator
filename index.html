@@ -202,7 +202,6 @@
                 <table id="contentBody" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
                     <!-- Sections : BEGIN -->
                     <!-- sections : END -->
-
                     <!-- Clear Spacer : BEGIN -->
                     <tr>
                         <td height="20" style="font-size: 0; line-height: 0;">
@@ -215,7 +214,6 @@
 
                 <!-- Email Footer : BEGIN -->
                 <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
-                    <hr>
                     <tr>
                         <td style=" margin:auto; width: 100%;font-size: 16px; mso-height-rule: exactly; line-height:16px; text-align: center;">
                             <br>
@@ -328,7 +326,7 @@
                 tr4.appendChild(td4);
 
                 var img = document.createElement("img");
-                img.setAttribute("style", "border: 0;width: 100%;");
+                img.setAttribute("style", "border: 0;width: 100%; margin: 0%");
                 img.setAttribute("class", "center-on-narrow");
                 img.setAttribute("src", "http://placehold.it/600");
                 img.setAttribute("onclick", "getImg(this);");
@@ -358,7 +356,7 @@
 
                 var inputText = document.createElement("textarea");
                 inputText.setAttribute("class", "text");
-                inputText.setAttribute("style", "align: center; margin-left: auto; margin-right: auto");
+                inputText.setAttribute("style", "align: justify; margin-left: auto; margin-right: auto");
                 inputText.style.display = "none";
                 inputText.value = "Some text";
                 td5.appendChild(inputText);
@@ -376,6 +374,8 @@
                 btn.style.display = "none";
                 td5.appendChild(btn);
 
+                var hr = document.createElement("hr");
+                td.appendChild(hr);
                 return tr;
             }
             function getImg(element) {
