@@ -145,7 +145,7 @@
 
                 /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
                 .center-on-narrow {
-                    text-align: center !important;
+                    text-align: center ;
                     display: block !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
@@ -163,14 +163,20 @@
                 font-size: inherit;
                 display: block;
                 font-size: 1.5em;
-                margin-before: 0.83em;
-                margin-after: 0.83em;
+                margin-before: 0.63em;
+                margin-after: 0.63em;
                 margin-start: 0;
                 margin-end: 0;
                 font-weight: bold;
             }
             .h2-title:hover, .p-text:hover {
               text-decoration: underline;
+            }
+            td > .p-text , td > textarea, .text{
+              text-align: justify;
+              align: justify;
+              margin-left: auto;
+              margin-right: auto;
             }
         </style>
 
@@ -356,15 +362,14 @@
 
                 var inputText = document.createElement("textarea");
                 inputText.setAttribute("class", "text");
-                inputText.setAttribute("style", "align: justify; margin-left: auto; margin-right: auto");
                 inputText.style.display = "none";
-                inputText.value = "Some text";
+                inputText.value = "Lorem ipsum dolor sit amet, pellentesque integer vitae sit mauris, pretium elit felis magna in, quam ut adipiscing in lobortis, nulla ut ultricies quis, a et est neque eu. ";
                 td5.appendChild(inputText);
 
                 var text = document.createElement("p");
                 text.setAttribute("class", "p-text");
                 text.setAttribute("onclick", "editar(this, 'textarea')");
-                text.innerHTML = "Some text";
+                text.innerHTML = "Lorem ipsum dolor sit amet, pellentesque integer vitae sit mauris, pretium elit felis magna in, quam ut adipiscing in lobortis, nulla ut ultricies quis, a et est neque eu. ";
                 td5.appendChild(text);
 
                 var btn = document.createElement("button");
