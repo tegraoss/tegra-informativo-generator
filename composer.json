@@ -1,0 +1,14 @@
+{
+    "name": "tegra/upload",
+    "require": {
+        "aws/aws-sdk-php": "^3.18",
+        "silex/silex": "~2.0"
+    },
+    "authors": [
+        {
+            "name": "Willian Duque",
+            "email": "willian.duque@tegra.me"
+        }
+    ],
+    "minimum-stability": "dev"
+}

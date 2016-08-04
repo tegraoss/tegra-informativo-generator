@@ -1,0 +1,28 @@
+#Upload {
+	width: 25em;
+	margin: 1em auto;
+	padding:0 2em 2em 2em ;
+	border:1px solid #bbb;
+	color: #fff;
+	background:#bbb;
+	font: 1em Lato, sans-serif;
+}
+			
+#Upload h1{
+	font: 1.6em bold Lato, sans-serif;
+	margin: 0;
+	padding:1em 0;
+	text-align:center;
+}
+#Upload label{
+	float: left;
+	width: 7em;
+}
+		
+#Upload p {
+	 clear: both;
+}		
+
+.red{
+	color:red;
+}
