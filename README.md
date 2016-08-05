@@ -5,13 +5,13 @@ Aplication responsible for creating the "Tegra - informativo" using [Javascript 
 
 Installation
 ------------------------
-´´´
+```
   cd tegra-informativo-generator/
   composer init
   composer install
   composer require silex/silex "~2.0"
-  php -S *localhost:8080*
-
+  php -S localhost:8080
+```
 How to use it
 ------------------------
   - To add a new section:
