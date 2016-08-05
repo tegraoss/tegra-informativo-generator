@@ -1,15 +1,23 @@
 # tegra-informativo-generator
-![Javascript Vanilla logo](http://vanilla-js.com/assets/button.png)
 
-Aplication responsible for creating the "Tegra - informativo" using [Javascript vanilla](http://vanilla-js.com/) and [Cerberus](http://tedgoas.github.io/Cerberus/)
+Aplication responsible for creating the "Tegra - informativo" using [Javascript vanilla](http://vanilla-js.com/), [Cerberus](http://tedgoas.github.io/Cerberus/) and PHP with [Silex](http://silex.sensiolabs.org/) and [Composer](https://getcomposer.org)
+
+
+Installation
+------------------------
+´´´
+  cd tegra-informativo-generator/
+  composer init
+  composer install
+  composer require silex/silex "~2.0"
+  php -S *localhost:8080*
 
 How to use it
-=====================
-
-1. First open/go to index.html
-2. To add a new section, select the *add section* button
-3. Then select the element you want to edit. e.g: *Select Title*
-4.  Enter the new data to the element. e.g: *Insert a URL source for the image or type text*
-5.  Then select the *save button*
-6.  *When finished:* Just copy the content of the web page and paste inside the e-mail body.
+------------------------
+  - To add a new section:
+    1. Select the *add section* button
+    2. Then select the element you want to edit. e.g: *Select image*
+    3. Enter the new data to the element. e.g: *Choose a file in the pop-up windows and, then press 'upload me!'*
+    4. After editing the section press the *'save'* button
+  - *When finished:* Just copy the content of the web page and paste inside the e-mail body.
 
