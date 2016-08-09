@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.36",
+            "version": "3.18.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "48362bce008fa9c20a71dfa6a68aebac65a8ab1b"
+                "reference": "0d4abd38caf09fbda9177e8c1fd2a9ec73d71d66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/48362bce008fa9c20a71dfa6a68aebac65a8ab1b",
-                "reference": "48362bce008fa9c20a71dfa6a68aebac65a8ab1b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0d4abd38caf09fbda9177e8c1fd2a9ec73d71d66",
+                "reference": "0d4abd38caf09fbda9177e8c1fd2a9ec73d71d66",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-08-02 20:49:01"
+            "time": "2016-08-04 21:27:47"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -93,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d115eaa7bf977d92b3651bc55476269745008ae2"
+                "reference": "3b45e7675e8997ac96142b0265d158343958f708"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d115eaa7bf977d92b3651bc55476269745008ae2",
-                "reference": "d115eaa7bf977d92b3651bc55476269745008ae2",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3b45e7675e8997ac96142b0265d158343958f708",
+                "reference": "3b45e7675e8997ac96142b0265d158343958f708",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +147,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-08-03 17:16:45"
+            "time": "2016-08-04 00:05:49"
         },
         {
             "name": "guzzlehttp/promises",
@@ -365,12 +365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "d9723e49924bd8580643db7cd4075c590ab8bf79"
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/d9723e49924bd8580643db7cd4075c590ab8bf79",
-                "reference": "d9723e49924bd8580643db7cd4075c590ab8bf79",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
@@ -398,6 +398,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -406,7 +407,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-03 18:17:07"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -716,12 +717,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "2cb967d1d8e4d1ea06fdec139d4630ded697917d"
+                "reference": "9cd5b9033ddcedd281e8d5a61f50d18035d0dc1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/2cb967d1d8e4d1ea06fdec139d4630ded697917d",
-                "reference": "2cb967d1d8e4d1ea06fdec139d4630ded697917d",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/9cd5b9033ddcedd281e8d5a61f50d18035d0dc1c",
+                "reference": "9cd5b9033ddcedd281e8d5a61f50d18035d0dc1c",
                 "shasum": ""
             },
             "require": {
@@ -790,7 +791,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30 07:40:02"
+            "time": "2016-08-05 08:52:18"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -857,12 +858,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "3943c0b193c8f8fc599acc16664cea81fe606029"
+                "reference": "296b78a5f3f31fec36ca8ea556f95713df9bfe2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/3943c0b193c8f8fc599acc16664cea81fe606029",
-                "reference": "3943c0b193c8f8fc599acc16664cea81fe606029",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/296b78a5f3f31fec36ca8ea556f95713df9bfe2d",
+                "reference": "296b78a5f3f31fec36ca8ea556f95713df9bfe2d",
                 "shasum": ""
             },
             "require": {
@@ -924,7 +925,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2016-07-01 08:30:59"
+            "time": "2016-08-07 15:19:41"
         }
     ],
     "packages-dev": [],
