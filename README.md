@@ -1,6 +1,6 @@
 # tegra-informativo-generator
 
-Aplication responsible for creating the "Tegra - informativo" using [Javascript vanilla](http://vanilla-js.com/), [Cerberus](http://tedgoas.github.io/Cerberus/) and PHP with [Silex](http://silex.sensiolabs.org/) and [Composer](https://getcomposer.org)
+Application responsible for creating the "Tegra - informativo" using [Javascript vanilla](http://vanilla-js.com/), [Cerberus](http://tedgoas.github.io/Cerberus/) and PHP with [Silex](http://silex.sensiolabs.org/) and [Composer](https://getcomposer.org)
 
 
 Installation
@@ -19,5 +19,5 @@ How to use it
     2. Then select the element you want to edit. e.g: *Select image*
     3. Enter the new data to the element. e.g: *Choose a file in the pop-up windows and, then press 'upload me!'*
     4. After editing the section press the *'save'* button
-  - *When finished:* Just copy the content of the web page and paste inside the e-mail body.
+  - *When finished:* Just copy the content of the web page and paste in the e-mail body.
 
