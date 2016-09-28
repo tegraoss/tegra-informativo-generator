@@ -1,18 +1,16 @@
 document.setFile = function(id, value) {
     var img = document.getElementById(id);
     img.setAttribute("src",value);
-}
+};
 
 function selectValue(id){
     // open popup window and pass field id
     var ref = window.open('php/form.php?id=' + encodeURIComponent(id), 'popuppage','width=400,toolbar=1,resizable=1,scrollbars=yes,height=400,top=100,left=100');
     ref.focus();
-
 }
   function updateValue(id, value){
     // this gets called from the popup window and updates the field with a new value
     document.getElementById(id).src = value;
-    // alert("element of id " + id + " src= " + value);
 }
 
 function adicionar() {
@@ -26,12 +24,12 @@ function editar(element, e) {
     element.parentElement.getElementsByTagName("button")[0].style.display = "block";
 }
 function x(element) {
-    let inpt = element.parentElement.getElementsByTagName("input")[0];
-    let h2 = element.parentElement.getElementsByTagName("h2")[0];
+    var inpt = element.parentElement.getElementsByTagName("input")[0];
+    var h2 = element.parentElement.getElementsByTagName("h2")[0];
     h2.innerHTML = inpt.value;
 
-    let txt = element.parentElement.getElementsByTagName("textarea")[0];
-    let p = element.parentElement.getElementsByTagName("p")[0];
+    var txt = element.parentElement.getElementsByTagName("textarea")[0];
+    var p = element.parentElement.getElementsByTagName("p")[0];
     p.innerHTML = txt.value;
 
     h2.style.display = "block";
@@ -113,7 +111,7 @@ function createSection() {
     img.setAttribute("style", "border: 0;width: 100%; margin: 0%");
     img.setAttribute("class", "center-on-narrow");
     img.setAttribute("src", "http://placehold.it/600");
-    img.setAttribute("id", ++window['imgId'])
+    img.setAttribute("id", ++window.imgId);
     img.setAttribute("onclick", "selectValue(this.id);");
     td4.appendChild(img);
 
