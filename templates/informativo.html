@@ -8,165 +8,158 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Use the latest (edge) version of IE rendering engine -->
         <title>Informativo Tegra</title>
-
         <!-- Web Font / @font-face : BEGIN -->
-
         <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
         <!--[if mso]> <style> * { font-family: 'Lato', sans-serif; !important; } </style> <![endif]-->
-
         <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
         <!--[if !mso]><!-->
         <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
         <!--<![endif]-->
-
         <!-- Web Font / @font-face : END -->
-
         <!-- CSS Reset -->
         <style type="text/css">
-
-            /* What it does: Remove spaces around the email design added by some email clients. */
+            /* Remove spaces around the email design added by some email clients. */
             /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
             body,
             footer,
             html {
-                margin: 0 auto !important;
-                padding: 0 !important;
-                height: 100% !important;
-                width: 100% !important;
-                color: #3a3b3d;
-                font-family: 'Lato', sans-serif;
-                background: #fff;
-                align-items: center;
+              margin: 0 auto !important;
+              padding: 0 !important;
+              height: 100% !important;
+              width: 100% !important;
+              color: #3a3b3d;
+              font-family: 'Lato', sans-serif;
+              background: #fff;
+              align-items: center;
             }
 
-            /* What it does: Stops email clients resizing small text. */
+            /* Stops email clients resizing small text. */
             * {
-                -ms-text-size-adjust: 100%;
-                -webkit-text-size-adjust: 100%;
+              -ms-text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
             }
 
-            /* What it does: Centers email on Android 4.4 */
+            /* Centers email on Android 4.4 */
             div[style*="margin:16px 0"] {
-                margin: 0 !important;
+              margin: 0 !important;
             }
 
-            /* What it does: Stops Outlook from adding extra spacing to tables. */
+            /* Stops Outlook from adding extra spacing to tables. */
             table,
             td {
-                mso-table-lspace: 0 !important;
-                mso-table-rspace: 0 !important;
+              mso-table-lspace: 0 !important;
+              mso-table-rspace: 0 !important;
             }
 
-            /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+            /* Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
             table {
-                border-spacing: 0 !important;
-                border-collapse: collapse !important;
-                table-layout: fixed !important;
-                margin: 0 auto !important;
+              border-spacing: 0 !important;
+              border-collapse: collapse !important;
+              table-layout: fixed !important;
+              margin: 0 auto !important;
             }
             table table table {
-                table-layout: auto;
+              table-layout: auto;
             }
 
-            /* What it does: Uses a better rendering method when resizing images in IE. */
+            /* Uses a better rendering method when resizing images in IE. */
             img {
-                -ms-interpolation-mode: bicubic;
+              -ms-interpolation-mode: bicubic;
             }
 
-            /* What it does: A work-around for iOS meddling in triggered links. */
+            /* A work-around for iOS meddling in triggered links. */
             .mobile-link--footer a,
             a[x-apple-data-detectors] {
-                color: inherit !important;
-                text-decoration: underline !important;
+              color: inherit !important;
+              text-decoration: underline !important;
             }
         </style>
 
         <!-- Progressive Enhancements -->
         <style>
 
-            /* What it does: Hover styles for buttons */
+            /* Hover styles for buttons */
             .button-a,
             .button-td {
-                transition: all 100ms ease-in;
-                color: #fff;
-                font-size: 16px;
-                border-radius: 6px;
-                margin-top: auto;
-                padding-top: 4px;
-                background-color: #D0021A;
-                text-transform: capitalize;
+              transition: all 100ms ease-in;
+              color: #fff;
+              font-size: 16px;
+              border-radius: 6px;
+              margin-top: auto;
+              padding-top: 4px;
+              background-color: #D0021A;
+              text-transform: capitalize;
             }
             .button-a:hover,
             .button-td:hover {
-                background: #C0020A !important;
-                border-color: #C0022F !important;
+              background: #C0020A !important;
+              border-color: #C0022F !important;
             }
 
             /* Media Queries */
             @media screen and (max-width: 480px) {
+              /* Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+              .fluid,
+              .fluid-centered {
+                  width: 100% !important;
+                  max-width: 100% !important;
+                  height: auto !important;
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+              }
+              /* And center justify these ones. */
+              .fluid-centered {
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+              }
 
-                /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
-                .fluid,
-                .fluid-centered {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    height: auto !important;
-                    margin-left: auto !important;
-                    margin-right: auto !important;
-                }
-                /* And center justify these ones. */
-                .fluid-centered {
-                    margin-left: auto !important;
-                    margin-right: auto !important;
-                }
+              /* Forces table cells into full-width rows. */
+              .stack-column,
+              .stack-column-center {
+                  display: block !important;
+                  width: 100% !important;
+                  max-width: 100% !important;
+                  direction: ltr !important;
+              }
+              /* And center justify these ones. */
+              .stack-column-center {
+                  text-align: center !important;
+              }
 
-                /* What it does: Forces table cells into full-width rows. */
-                .stack-column,
-                .stack-column-center {
-                    display: block !important;
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    direction: ltr !important;
-                }
-                /* And center justify these ones. */
-                .stack-column-center {
-                    text-align: center !important;
-                }
-
-                /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
-                .center-on-narrow {
-                    text-align: center ;
-                    display: block !important;
-                    margin-left: auto !important;
-                    margin-right: auto !important;
-                    float: none !important;
-                }
-                table.center-on-narrow {
-                    display: inline-block !important;
-                }
+              /* Generic utility class for centering. Useful for images, buttons, and nested tables. */
+              .center-on-narrow {
+                  text-align: center ;
+                  display: block !important;
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+                  float: none !important;
+              }
+              table.center-on-narrow {
+                  display: inline-block !important;
+              }
             }
 	    /* What is does: Makes impossible to copy any element of the class unselectable */
             .unselectable {
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
             }
             td > input {
-                border: none;
-                outline: none;
-                background-color: transparent;
-                font-family: inherit;
-                font-size: inherit;
-                display: block;
-                font-size: 1.5em;
-                margin-before: 0.63em;
-                margin-after: 0.63em;
-                margin-start: 0;
-                margin-end: 0;
-                font-weight: bold;
+              border: none;
+              outline: none;
+              background-color: transparent;
+              font-family: inherit;
+              font-size: inherit;
+              display: block;
+              font-size: 1.5em;
+              margin-before: 0.63em;
+              margin-after: 0.63em;
+              margin-start: 0;
+              margin-end: 0;
+              font-weight: bold;
             }
             .h2-title:hover, .p-text:hover {
               text-decoration: underline;
@@ -176,6 +169,11 @@
               align: justify;
               margin-left: auto;
               margin-right: auto;
+            }
+            /* Makes impossible to open on anchor by accident while editing the section's content */
+            a:not(#contact) {
+              pointer-events: none;
+              cursor: default;
             }
         </style>
 
@@ -224,8 +222,8 @@
                             <br>
                             <br>
                             <p>Tem alguma sugestão para nosso próximo informativo?<span style="display:block"></span>
-                                Mande um e-mail para
-                                <a href="mailto:informativo@tegra.me">informativo@tegra.me</a>
+                                Mandeid="contact"  um e-mail para
+                                <a id="contact" href="mailto:informativo@tegra.me">informativo@tegra.me</a>
                             </p>
                         </td>
                     </tr>
