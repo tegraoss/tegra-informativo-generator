@@ -1,28 +1,114 @@
-#Upload {
-	width: 25em;
-	margin: 1em auto;
-	padding:0 2em 2em 2em ;
-	border:1px solid #bbb;
-	color: #fff;
-	background:#bbb;
-	font: 1em Lato, sans-serif;
+@import url("http://fonts.googleapis.com/css?family=Lato");
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-			
-#Upload h1{
-	font: 1.6em bold Lato, sans-serif;
-	margin: 0;
-	padding:1em 0;
-	text-align:center;
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #131212;
+  padding: 55px 25px;
+  background-color: #F2F2F2;
 }
-#Upload label{
-	float: left;
-	width: 7em;
+form#Upload {
+  display: table;
+  width: 50em;
+  margin: auto;
+  padding: 30px 30px;
+	background:	#fff;
+  border: 1px solid #cecece;
+	border-radius: 3px;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)
 }
-		
-#Upload p {
-	 clear: both;
-}		
+.title {
+  color: #ed1b1f;
+  padding-bottom: 20px;
+  text-align: center;
+      display: block;
+    position: relative;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: .02em;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+p {
+  margin-top: 40px;
+  padding: 10px;
+  color: #ed1b1f;
+}
+p a{
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  clear: both;
+  padding: 5px 10px;
+  margin: 0 5px;
+  color: #ed1b1f;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.file-upload-input {
+  width: 300px;
+  font-size: 16px;
+  padding: 11px 17px;
+  border: none;
+  background: rgba(221, 221, 221, 0.5);
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  float: left;
+  /* IE 9 Fix */
+}
+.file-upload-button {
+  position: relative;
+  overflow:hidden;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  border: none;
+  margin-left: -3px;
+  background: rgba(222, 221, 221, 1);
+  float: left;
+  /* IE 9 Fix */
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+.file-upload-button:hover {
+  background-color: rgba(221, 221, 221, 0.2);
+}
+input#file-submit {
+   position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
 
-.red{
-	color:red;
+}
+input#submit {
+  display: block;
+  clear: both;
+  margin:0 0 10px 0;
+}
+.footer {
+  text-align: center;
+}
+label#upload-label {
+    font-size: 16px;
+    font-family: "Helvetica","Arial",sans-serif;
+    text-align: left;
+    display: block;
+    margin: 10px 0;
+    color: #ed1b1f;
+
 }

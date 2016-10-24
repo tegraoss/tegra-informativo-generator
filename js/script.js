@@ -5,7 +5,7 @@ document.setFile = function(id, value) {
 
 function selectValue(id){
     // open popup window and pass field id
-    var ref = window.open('php/form.php?id=' + encodeURIComponent(id), 'popuppage','width=400,toolbar=1,resizable=1,scrollbars=yes,height=400,top=100,left=100');
+    var ref = window.open('php/form.php?id=' + encodeURIComponent(id), 'popuppage','width=700,toolbar=1,resizable=1,scrollbars=yes,height=400,top=0,left=0');
     ref.focus();
 }
   function updateValue(id, value){

@@ -26,7 +26,7 @@ $app->get('/', function() use ($app) {
 });
 
 $app->post('/upload', function (Request $request) use ($app, $s3) {
-
+  // get the element by name
   $file = $_FILES['file'];
   $elementid = $request->get('elementid');
 
